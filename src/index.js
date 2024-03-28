@@ -5,9 +5,9 @@
 //map. filter, reduce, some, every
 
 import express from "express";
-import { engine } from "express-handlebars"; /*-- theo kiểu es6 ECMA*/
-import path, { dirname } from "path";
-import { fileURLToPath } from "url";
+// import { engine } from "express-handlebars"; /*-- theo kiểu es6 ECMA*/
+// import path, { dirname } from "path";
+// import { fileURLToPath } from "url";
 import mongoose from "mongoose";
 import "dotenv/config";
 const app = express();

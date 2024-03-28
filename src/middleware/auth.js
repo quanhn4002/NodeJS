@@ -1,5 +1,6 @@
 import "dotenv/config";
 import jwt from "jsonwebtoken";
+// Phân biệt 2 loại middleware:
 function checkAuth(req, res, next) {
   if (req.headers.authorization) {
     const token = req.headers.authorization.split(" ")[1];
