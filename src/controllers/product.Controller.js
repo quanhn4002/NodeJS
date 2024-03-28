@@ -1,12 +1,24 @@
-const productList = [
-  { id: 1, name: "product1", price: 300 },
-  { id: 2, name: "abc", price: 600 },
-  { id: 3, name: "abc", price: 900 },
-];
 // [get] /product lấy ra tất cả sản phẩm
 import product from "../models/product.model.js";
 import category from "../models/category.model.js";
 
+export function getProductbyCategory(req, res) {
+  // lấy ra sản phẩm theo danh mục
+  let Cate_id = req.params.id;
+  console.log(Cate_id);
+  if (Cate_id) {
+    product
+      .find({ categoryId: Cate_id })
+      .then((data) => {
+        res.json(data);
+      })
+      .catch(() => {
+        res.json({ Message: "Có lỗi" });
+      });
+  } else {
+    res.json({ Message: "Không tìm thấy sản phẩm" });
+  }
+}
 // [GET] /product
 export function index(req, res) {
   product
@@ -31,7 +43,7 @@ export function getById(req, res) {
         res.json(data);
       })
       .catch(() => {
-        res.json({ Message: "O tìm thấy sản phẩm" });
+        res.json({ Message: "O tìm     thấy sản phẩm" });
       });
   } else {
     res.json({ Message: "Không nhận được dữ liệu" });

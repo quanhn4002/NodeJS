@@ -2,6 +2,7 @@ import user from "../models/users.model.js";
 import bcryptjs from "bcryptjs";
 import jwt from "jsonwebtoken";
 import "dotenv/config";
+
 export function index(req, res) {
   // tìm kiếm theo tên
   const nameString = req.query.name;

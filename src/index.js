@@ -5,9 +5,9 @@
 //map. filter, reduce, some, every
 
 import express from "express";
-// import { engine } from "express-handlebars"; /*-- theo kiểu es6 ECMA*/
-// import path, { dirname } from "path";
-// import { fileURLToPath } from "url";
+import { engine } from "express-handlebars"; /*-- theo kiểu es6 ECMA*/
+import path, { dirname } from "path";
+import { fileURLToPath } from "url";
 import mongoose from "mongoose";
 import "dotenv/config";
 const app = express();
@@ -36,6 +36,8 @@ import commonRouter from "./router/comont.router.js";
 app.use("/", commonRouter);
 import userRouter from "./router/users.router.js";
 app.use("/user", userRouter);
+import cartRouter from "./router/cart.router.js";
+app.use("/cart", cartRouter);
 
 //middleware
 

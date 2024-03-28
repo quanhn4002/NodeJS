@@ -1,24 +1,22 @@
 import express from "express";
 import {
   index,
-  getById,
-  postPr,
-  putPr,
-  deletePr,
-  getProductbyCategory,
-} from "../controllers/product.Controller.js";
+  getByUser,
+  postCart,
+  putCart,
+  deleteCart,
+} from "../controllers/cart.Controller.js";
 const router = express.Router();
 //lấy danh sách sản phẩm
 router.get("/", index);
 //lấy danh sách sản phẩm theo id
-router.get("/:id", getById);
+router.get("/userId/:id", getByUser);
 //add sản phẩm
-router.post("/", postPr);
+router.post("/", postCart);
 //sửa sản phẩm
-router.put("/:id", putPr);
+router.put("/:id", putCart);
 //xóa sản phẩm
-router.delete("/:id", deletePr);
+router.delete("/:id", deleteCart);
 //lấy ra sản phẩm theo category
-router.get("/category/:id", getProductbyCategory);
 
 export default router;
