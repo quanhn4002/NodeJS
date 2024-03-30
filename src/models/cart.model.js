@@ -1,4 +1,5 @@
 import mongoose from "mongoose";
+
 const cartSchema = new mongoose.Schema(
   {
     userId: {
@@ -11,7 +12,7 @@ const cartSchema = new mongoose.Schema(
           type: mongoose.Types.ObjectId,
           ref: "products",
         },
-        quantily: {
+        quantity: {
           type: Number,
         },
       },
@@ -19,4 +20,5 @@ const cartSchema = new mongoose.Schema(
   },
   { timestamps: true }
 );
-export default mongoose.model("Cart", cartSchema);
+
+export default mongoose.model("cart", cartSchema);

@@ -37,7 +37,7 @@ app.use("/", commonRouter);
 import userRouter from "./router/users.router.js";
 app.use("/user", userRouter);
 import cartRouter from "./router/cart.router.js";
-app.use("/cart", cartRouter);
+app.use("/cart", checkAuth, cartRouter);
 
 //middleware
 

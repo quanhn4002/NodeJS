@@ -154,7 +154,7 @@ export async function signin(req, res) {
   const token = jwt.sign(
     { name: userExist.name, username: userExist.email },
     process.env.KEY_SECRET,
-    { expiresIn: "1h" }
+    { expiresIn: "5h" }
   );
 
   console.log(token);
