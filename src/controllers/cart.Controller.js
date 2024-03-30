@@ -12,7 +12,7 @@ export function index(req, res) {
 export function getByUser(req, res) {
   const idUser = req.params.id;
   // console.log(userId);
-  Cart.findOne({ userId: idUser })
+  Cate.findOne({ userId: idUser })
     .populate("userId")
     .populate({
       path: "items.productId",
