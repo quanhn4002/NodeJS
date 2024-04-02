@@ -13,3 +13,21 @@ const storage = multer.diskStorage({
   },
 });
 export const upload = multer({ storage: storage });
+// load nhiều image
+
+const MuliStorage = multer.diskStorage({
+  // khai báo nơi lưu trữ file
+  destination: (req, file, callback) => {
+    callback(null, "src/uploads");
+  },
+
+  filename: (req, file, callback) => {
+    // console.log(file);
+    req.body.images = req.body.images || [];
+    const filename = Date.now() + path.extname(file.originalname);
+    req.body.images.push(filename);
+    callback(null, filename);
+  },
+});
+
+export const MultiUpload = multer({ storage: MuliStorage });

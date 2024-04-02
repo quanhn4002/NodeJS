@@ -1,7 +1,10 @@
 import express from "express";
 const router = express.Router();
-import { upload } from "../middleware/upload.js";
-import { Upload as uploadToDB } from "../controllers/common.controller.js";
+import { MultiUpload, upload } from "../middleware/upload.js";
+import {
+  Upload as uploadToDB,
+  MultiUpload as MultiUploadToDB,
+} from "../controllers/common.controller.js";
 
 router.get("/", (req, res) => {
   res.send("home");
@@ -12,5 +15,6 @@ router.get("/tintuc", (req, res) => {
 });
 
 router.post("/upload", upload.single("image"), uploadToDB);
+router.post("/mutiupload", MultiUpload.array("images"), MultiUploadToDB);
 
 export default router;

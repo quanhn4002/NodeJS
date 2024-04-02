@@ -26,6 +26,10 @@ app.use(express.json());
 // app.set("view engine", "handlebars");
 // app.set("views", path.join(__dirname, "/views"));
 
+//upload ảnh
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+app.use(express.static(path.join(__dirname, "uploads")));
 // import router
 import checkAuth from "./middleware/auth.js";
 import productRouter from "./router/product.router.js";

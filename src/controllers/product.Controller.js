@@ -21,8 +21,32 @@ export function getProductbyCategory(req, res) {
 }
 // [GET] /product
 export function index(req, res) {
+  //phân trang
+  const page = req.query.page || 1;
+  const limit = req.query.limit || 10;
+  const skip = (page - 1) * limit;
+  console.log(page, limit, skip);
+  // tìm kiếm
+
+  const filter = {};
+  //regex so sánh chuối gần
+  if (req.query.name) {
+    filter.name = { $regex: req.query.name };
+  }
+  if (req.query.min) {
+    filter.price = { $lte: req.query.min }; // lte : so sánh nhỏ hơn hoặc bằng
+  }
+  if (req.query.max) {
+    filter.price = { $gte: req.query.max }; // gte : so sánh lớn hơn hoặc bằng
+  }
+  const sort = { price: -1, name: 1 };
+
   product
-    .find()
+    .find(filter)
+    // phân trang
+    .skip(skip)
+    .limit(limit)
+    .sort(sort)
     .populate("categoryId")
     .then((data) => {
       res.json(data);
