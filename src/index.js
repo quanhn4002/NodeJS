@@ -42,6 +42,8 @@ import userRouter from "./router/users.router.js";
 app.use("/user", userRouter);
 import cartRouter from "./router/cart.router.js";
 app.use("/cart", checkAuth, cartRouter);
+import bookRouter from "./router/book.router.js";
+app.use("/book", checkAuth, bookRouter);
 
 //middleware
 
