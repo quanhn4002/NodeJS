@@ -19,7 +19,7 @@ const bookSchema = new mongoose.Schema({
   },
   categoryId: {
     type: mongoose.Types.ObjectId,
-    ref: "bookCategories",
+    ref: "bookcategories",
   },
 });
-export default mongoose.model("books", bookSchema);
+export default mongoose.model("book", bookSchema);

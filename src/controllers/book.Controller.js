@@ -1,7 +1,9 @@
 import bookModel from "../models/book.model.js";
+import bookCategories from "../models/booksCategory.model.js";
 export function index(req, res) {
   bookModel
     .find()
+
     .then((data) => {
       res.status(200).json(data);
     })
@@ -13,6 +15,7 @@ export function getByidBook(req, res) {
   const id = req.params.id;
   bookModel
     .findById(id)
+    // .populate("categoryId")
     .then((data) => {
       res.status(200).json(data);
     })
